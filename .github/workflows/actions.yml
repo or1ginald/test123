@@ -20,7 +20,3 @@ jobs:
         run: yarn install
       - name: build project
         run: yarn build
-#      - name: unit test
-#        run: npm run test:unit
-      - name: lint code
-        run: yarn lint
