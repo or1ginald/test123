@@ -37,15 +37,6 @@ export const EmployeeTable: FC<PropsType> = memo(({ setOpenDelete, setOpenUpdate
   ];
 
   const outline = isDarkMode ? '1px solid rgba(255,255,255,0.1)' : 'none';
-  // const arrow = sort[ARRAY_ZERO_ELEMENT] === '0' ? '⬇' : '⬆';
-  // const keys = tableHeaders.map(header => header.key);
-  // const labels = tableHeaders.map(header => header.label);
-
-  // const [sortKey, setSortKey] = useState('');
-  // const [sortOrder, setSortOrder] = useState('');
-
-  // const dispatch = useDispatch();
-  // const one = 1;
 
   return (
     <TableContainer
