@@ -59,11 +59,11 @@ export const authApi = {
 };
 
 const instanceData = axios.create({
-  baseURL: 'https://crm.dcloud.tech/',
+  baseURL: process.env.REACT_APP_API_BASEURL_DATA,
   withCredentials: true,
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer d028b61897ea2915e9a83c7cfe5795b3',
+    Authorization: `Bearer ${process.env.REACT_APP_API_DATA_TOKEN}`,
   },
 });
 
