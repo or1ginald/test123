@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { createTheme, ThemeProvider } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { ErrorSnackbar } from './components/AppError';
 import Navbar from './components/navbar/Navbar';
@@ -10,7 +10,6 @@ import { RoutesComponent } from './components/routesComponent/RoutesComponent';
 import Sidebar from './components/sidebar/Sidebar';
 import { getIsDarkMode } from './store';
 
-import { setAuthTC } from 'store/reducers';
 import { RootReducerType } from 'store/types';
 import './style/dark.scss';
 
@@ -37,11 +36,11 @@ const App: FC = () => {
           }),
     },
   }); */
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // @ts-ignore
-    dispatch(setAuthTC());
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   // @ts-ignore
+  //   dispatch(setAuthTC());
+  // }, []);  DEV
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',

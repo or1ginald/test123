@@ -5,8 +5,8 @@ import { handleServerNetworkError } from 'utils';
 
 export type StatusType = 'idle' | 'success' | 'loading' | 'failed';
 const initialState = {
-  isLoggedIn: false,
-  isAuth: false,
+  isLoggedIn: true, // DEV
+  isAuth: true, // DEV
   status: 'idle' as StatusType,
 };
 
