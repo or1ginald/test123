@@ -4,20 +4,20 @@ import { AppThunk } from '../index';
 import { handleServerNetworkError } from 'utils';
 
 export type StatusType = 'idle' | 'success' | 'loading' | 'failed';
-const initialstate = {
+const initialState = {
   isLoggedIn: false,
   isAuth: false,
   status: 'idle' as StatusType,
 };
 
-export type InitialAutchType = typeof initialstate;
+export type InitialAutchType = typeof initialState;
 export type ActionTypeAuth =
   | ReturnType<typeof setLoginAC>
   | ReturnType<typeof setInitializedAC>
   | ReturnType<typeof setAppStatusAC>;
 
 export const authReducer = (
-  state: InitialAutchType = initialstate,
+  state: InitialAutchType = initialState,
   action: ActionTypeAuth,
 ): InitialAutchType => {
   switch (action.type) {

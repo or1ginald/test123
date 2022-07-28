@@ -7,6 +7,7 @@ const instance = axios.create({
     'API-KEY': '7ccc0386-8558-4e56-b3f7-82cd09cd2d3e',
   },
 });
+
 const NULL = 0;
 type CommonResponseType<T = {}> = {
   resultCode: number;
@@ -54,5 +55,25 @@ export const authApi = {
           throw new SyntaxError(res.data.messages[NULL]);
         } else return res;
       });
+  },
+};
+
+const instanceData = axios.create({
+  baseURL: 'https://crm.dcloud.tech/',
+  withCredentials: true,
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer d028b61897ea2915e9a83c7cfe5795b3',
+    'API-KEY': '7ccc0386-8558-4e56-b3f7-82cd09cd2d3e',
+  },
+});
+
+export const employeesApi = {
+  getEmployees() {
+    return instanceData.get<any>(`plan`).then(res => {
+      if (res.data.resultCode !== ServerResponseResultCode.success) {
+        throw new SyntaxError(res.data.messages[NULL]);
+      } else return res;
+    });
   },
 };

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useEffect } from 'react';
 
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -8,12 +8,13 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { userRows } from '../../../datatablesource';
 import '../table.scss';
-import { getIsDarkMode } from '../../../store';
+import { getIsDarkMode, RootStateType } from '../../../store';
+import { setEmployeeTС } from '../../../store/reducers/employeeReducer';
 
 type TableHeaderType = {
   key: string;
@@ -27,6 +28,17 @@ type PropsType = {
 export const EmployeeTable: FC<PropsType> = memo(({ setOpenDelete, setOpenUpdate }) => {
   const navigate = useNavigate();
   const isDarkMode = useSelector(getIsDarkMode);
+
+  const login = useSelector<RootStateType, boolean>(state => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!login) {
+      return;
+    }
+    // @ts-ignore
+    dispatch(setEmployeeTС());
+  }, [dispatch]);
 
   const tableHeaders: TableHeaderType[] = [
     { key: 'employee', label: 'ФИО' },
