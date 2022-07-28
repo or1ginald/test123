@@ -1,10 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://social-network.samuraijs.com/api/1.1',
+  baseURL: process.env.REACT_APP_API_BASEURL_AUTH,
   withCredentials: true,
   headers: {
-    'API-KEY': '7ccc0386-8558-4e56-b3f7-82cd09cd2d3e',
+    'API-KEY': process.env.REACT_APP_API_AUTH_KEY as string,
   },
 });
 
@@ -64,7 +64,6 @@ const instanceData = axios.create({
   headers: {
     accept: 'application/json',
     Authorization: 'Bearer d028b61897ea2915e9a83c7cfe5795b3',
-    'API-KEY': '7ccc0386-8558-4e56-b3f7-82cd09cd2d3e',
   },
 });
 
