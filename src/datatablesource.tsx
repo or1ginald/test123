@@ -25,7 +25,6 @@ export const userColumns = [
     ), */
   },
 ];
-
 type UserType = {
   id: string;
   employee: string;
