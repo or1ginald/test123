@@ -60,7 +60,7 @@ export const authApi = {
 
 const instanceData = axios.create({
   baseURL: process.env.REACT_APP_API_BASEURL_DATA,
-  withCredentials: true,
+  // withCredentials: true,
   headers: {
     accept: 'application/json',
     Authorization: `Bearer ${process.env.REACT_APP_API_DATA_TOKEN}`,
